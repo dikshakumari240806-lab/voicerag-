@@ -1,0 +1,49 @@
+[
+  {
+    "id": "da866f0a-9bbf-4e90-aedb-55c05784603c",
+    "source": "data\\demo_knowledge.md",
+    "text": "# Scholarship Program 2026\n\nThe National Student Opportunity Scholarship is available to eligible undergraduate students.\n\n## Eligibility\nApplicants must be enrolled in an undergraduate program at a recognized institution and must have completed their previous qualifying examination.\n\n## Deadline\nThe application deadline for the 2026 cycle is 30 September 2026 at 11:59 PM India Standard Time.\n\n## Documents\nApplicants should prepare proof of enrollment, previous examination marksheet, identity proof, and bank account details.\n\n## Selection\nApplications are evaluated using eligibility checks followed by academic and financial criteria described in the official application guidelines.\n\n## Support\nFor application issues, applicants should use the support channel listed on the official scholarship portal.",
+    "strategy": "fixed",
+    "chunk_index": 0,
+    "metadata": {
+      "start": 0,
+      "end": 811
+    }
+  },
+  {
+    "id": "2c1be77a-9306-437a-bb35-692286547128",
+    "source": "data\\demo_knowledge.md",
+    "text": "# Scholarship Program 2026\n\nThe National Student Opportunity Scholarship is available to eligible undergraduate students.\n\n## Eligibility\nApplicants must be enrolled in an undergraduate program at a recognized institution and must have completed their previous qualifying examination.\n\n## Deadline\nThe application deadline for the 2026 cycle is 30 September 2026 at 11:59 PM India Standard Time.\n\n## Documents\nApplicants should prepare proof of enrollment, previous examination marksheet, identity proof, and bank account details.\n\n## Selection\nApplications are evaluated using eligibility checks followed by academic and financial criteria described in the official application guidelines.\n\n## Support\nFor application issues, applicants should use the support channel listed on the official scholarship portal.",
+    "strategy": "recursive",
+    "chunk_index": 0,
+    "metadata": {}
+  },
+  {
+    "id": "09f896ea-aa0f-4c6e-9d9e-a14787eda833",
+    "source": "data\\demo_knowledge.md",
+    "text": "# Scholarship Program 2026  The National Student Opportunity Scholarship is available to eligible undergraduate students. ## Eligibility Applicants must be enrolled in an undergraduate program at a recognized institution and must have completed their previous qualifying examination.",
+    "strategy": "semantic",
+    "chunk_index": 0,
+    "metadata": {
+      "similarity": 0.20616945624351501
+    }
+  },
+  {
+    "id": "316d9540-8589-4302-adba-3071a97720e5",
+    "source": "data\\demo_knowledge.md",
+    "text": "## Deadline The application deadline for the 2026 cycle is 30 September 2026 at 11:59 PM India Standard Time.",
+    "strategy": "semantic",
+    "chunk_index": 1,
+    "metadata": {
+      "similarity": 0.2159818857908249
+    }
+  },
+  {
+    "id": "140bc59d-31f3-4a2a-8394-9552f32ba50c",
+    "source": "data\\demo_knowledge.md",
+    "text": "## Documents Applicants should prepare proof of enrollment, previous examination marksheet, identity proof, and bank account details. ## Selection Applications are evaluated using eligibility checks followed by academic and financial criteria described in the official application guidelines. ## Support For application issues, applicants should use the support channel listed on the official scholarship portal.",
+    "strategy": "semantic",
+    "chunk_index": 2,
+    "metadata": {}
+  }
+]

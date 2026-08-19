@@ -1,0 +1,16 @@
+fastapi==0.116.1
+uvicorn[standard]==0.35.0
+python-multipart==0.0.20
+numpy==2.3.2
+faiss-cpu==1.14.3
+qdrant-client==1.18.0
+sentence-transformers==5.6.1
+faster-whisper==1.2.1
+sounddevice==0.5.5
+soundfile==0.13.1
+pyttsx3==2.99
+openai==1.99.9
+pypdf==6.0.0
+python-docx==1.2.0
+python-dotenv==1.1.1
+pydantic==2.11.7
