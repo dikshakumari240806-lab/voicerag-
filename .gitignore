@@ -1,4 +1,8 @@
+.venv/
 .env
 __pycache__/
 *.pyc
 *.wav
+data/
+storage/
+streamlit_app_backup.py

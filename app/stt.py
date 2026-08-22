@@ -1,71 +1,79 @@
 import os
 import tempfile
-
 from faster_whisper import WhisperModel
-from .config import settings
+
+_model = None
+
+
+def get_model():
+    global _model
+
+    if _model is None:
+        _model = WhisperModel(
+            "tiny",
+            device="cpu",
+            compute_type="int8",
+            cpu_threads=4,
+            num_workers=1
+        )
+
+    return _model
+
+
+def transcribe_file(path):
+    model = get_model()
+
+    segments, info = model.transcribe(
+        path,
+        language="en",
+        beam_size=1,
+        temperature=0,
+        vad_filter=True,
+        condition_on_previous_text=False
+    )
+
+    text = " ".join(
+        segment.text.strip()
+        for segment in segments
+        if segment.text.strip()
+    ).strip()
+
+    return text, float(
+        getattr(info, "language_probability", 1.0)
+    )
 
 
 class Transcriber:
+
     def __init__(self):
-        self.model = WhisperModel(
-            settings.whisper_model,
-            device="cpu",
-            compute_type="int8"
-        )
+        self.model = get_model()
 
     def transcribe_file(self, path):
-        segments, info = self.model.transcribe(
-            path,
-            language="en",
-            vad_filter=True,
-            beam_size=5,
-            temperature=0,
-            condition_on_previous_text=False
-        )
-
-        text = " ".join(
-            s.text.strip()
-            for s in segments
-            if s.text.strip()
-        ).strip()
-
-        return text, float(
-            getattr(info, "language_probability", 1.0)
-        )
+        return transcribe_file(path)
 
 
 def record_wav(seconds=6):
     import sounddevice as sd
     import soundfile as sf
 
-    SAMPLE_RATE = 44100
-    DEVICE = 12
+    sample_rate = 16000
 
     fd, path = tempfile.mkstemp(suffix=".wav")
     os.close(fd)
 
-    print(f"Using microphone device: {DEVICE}")
-    print(f"Recording {seconds} seconds — speak now...")
-
     audio = sd.rec(
-        int(seconds * SAMPLE_RATE),
-        samplerate=SAMPLE_RATE,
+        int(seconds * sample_rate),
+        samplerate=sample_rate,
         channels=1,
-        dtype="float32",
-        device=DEVICE
+        dtype="float32"
     )
 
     sd.wait()
 
-    # Reduce microphone gain
-    audio = audio * 0.35
-
-    # Keep audio safely inside [-1, 1]
-    audio = audio.clip(-1.0, 1.0)
-
-    print(f"Audio peak: {abs(audio).max():.4f}")
-    print(f"Audio RMS:  {(audio ** 2).mean() ** 0.5:.4f}")
-
-    sf.write(path, audio, SAMPLE_RATE)
+    sf.write(
+        path,
+        audio,
+        sample_rate
+    )
 
     return path
