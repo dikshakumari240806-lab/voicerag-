@@ -1,6 +1,11 @@
 # VoiceRAG — Fast, Grounded Voice Intelligence
 
+[![🚀 Open VoiceRAG App](https://img.shields.io/badge/🚀_Open_VoiceRAG_App-Streamlit-red?style=for-the-badge&logo=streamlit)](https://voicerag-diksha.streamlit.app/)
+
+An AI-powered Voice RAG assistant that combines speech-to-text, semantic retrieval, and Gemini LLMs to deliver accurate, grounded, and source-aware answers from documents.
+
 Complete pipeline: microphone/browser voice → Whisper transcription → 3 chunking strategies → embeddings → FAISS or local Qdrant → grounded LLM → guardrails → sources → optional TTS → benchmark harness.
+
 
 ## Setup
 ```powershell
